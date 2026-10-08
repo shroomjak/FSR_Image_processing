@@ -78,7 +78,7 @@ if __name__ == "__main__":
     img_arr = np.asarray(img, dtype=np.uint8)
     h, w = img_arr.shape[:2]
 
-    k = 10
+    k = 2
     variants = [
             ("Original", img_arr),
             (f"Multiple {k}, nearest", nearest_sample(img_arr, h * k, w * k)),

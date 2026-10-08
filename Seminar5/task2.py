@@ -109,14 +109,10 @@ if __name__ == "__main__":
     
     variants = [
             ("Original", img_arr),
-            ("Projective nearest",
-             projective_nearest(
-                img_src=img_arr, matrix=matrices[2]
-            )),
             ("Projective bilinear",
-             projective_bilinear(
-                img_src=img_arr, matrix=matrices[2]
-            ))
+             projective_bilinear(projective_bilinear(
+                img_src=img_arr, matrix=matrices[0]
+            ), matrix=np.linalg.inv(matrices[0])))
         ]
 
     fig, ax = plt.subplots(1, len(variants), figsize=(8, 14))
